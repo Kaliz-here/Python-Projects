@@ -19,14 +19,13 @@ class LibrarySystem:
         else:
             self.isbn = isbn
 
-        if(available == True):
-            print(True)
-        else:
-            self.available = available
-            
+        self.available = available   
         self.borrower_name = borrower_name
 
-    def borrow_book(borrower_name):
+    def borrow_book(self, borrower_name):
+        pass
+
+    def return_book(self):
         pass
 
     def __str__(self):
@@ -43,18 +42,30 @@ book_list = []
 book_dict = {}
 
 start = 1
+
 books = int(input("\nEnter Books > "))
 while start <= books:
-    title = input("\nEnter Title : ")
+
+    print(f"\nBook >> {start}")
+    title = input("Enter Title : ")
     author = input("Enter author name : ")
     isbn = input("Enter ISBN : ")
+
+    if isbn in book_dict:
+        print("ISBN alredy exist..!")
+        print(f"\nBook >> {start} again..!")
+
+        continue
+
     available = True
     borrower_name = None
 
     library_book = LibrarySystem(title, author, isbn, available, borrower_name)
-    book_list.append(library_book)
+    book_list.append(library_book) # Store books objects in list
+    book_dict[isbn] = library_book # find object using ISBN
 
     start += 1
 
+print("Library Books")
 for i in book_list:
     print(i)
