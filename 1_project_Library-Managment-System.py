@@ -43,6 +43,82 @@ book_dict = {}
 
 start = 1
 
+
+def employeeMenu():
+    while True:
+        print("""
+                1. Search Book
+                2. Add Book
+                3. Remove Book
+                4. Print All Books
+                5. Total Books
+                6. Available Book
+                7. Exit
+""")
+
+        # Search book dict using ISBN
+        employeeChoice = int(input("Enter choice : "))
+        if(employeeChoice == 1):
+            searchBook = input("Enter ISBN : ")
+            if searchBook in book_dict:
+                print(book_dict[searchBook])
+                print("\nBook Found..!")
+
+            else:
+                print("Not Found..!")
+
+        elif(employeeChoice == 2):
+            pass
+
+        elif(employeeChoice == 3):
+            pass
+
+        elif(employeeChoice == 4):
+            pass
+
+        elif(employeeChoice == 5):
+            pass
+
+        elif(employeeChoice == 6):
+            pass
+
+        elif(employeeChoice == 7):
+            break
+
+        else:
+            print("Invalid Choice..!")
+
+def customerMenu():
+    while True:
+        print("""
+                1. Borrow Book
+                2. Return Book
+                3. Search Book
+                4. View Available Books
+                5. Exit
+""")
+
+        customerChoice = int("Enter Choice : ")
+
+        if(customerChoice == 1):
+            pass
+
+        elif(customerChoice == 2):
+            pass
+
+        elif(customerChoice == 3):
+            pass
+
+        elif(customerChoice == 4):
+            pass
+
+        elif(customerChoice == 5):
+            break
+
+        else:
+            print("Invalid Choice..!")
+
+# add objects in list and dict until while loop get false
 books = int(input("\nEnter Books > "))
 while start <= books:
 
@@ -66,6 +142,17 @@ while start <= books:
 
     start += 1
 
-print("Library Books")
-for i in book_list:
-    print(i)
+# create customer menu and employee menu
+print("""
+        1. Employee Menu
+        2. Customer Menu
+""")
+userChoice = int(input("\nEnter Choice : "))
+if(userChoice == 1):
+    employeeMenu()
+
+elif(userChoice == 2):
+    customerMenu()
+
+else:
+    print("Invalid Choice..!")
